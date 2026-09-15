@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:veloshop/features/auth/presentation/pages/login_screen.dart';
+import 'package:veloshop/features/auth/presentation/pages/login_with_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+
+import 'features/auth/presentation/pages/verify_email_code.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -49,7 +51,7 @@ class MyApp extends StatelessWidget {
       locale: const Locale('fa', 'IR'),
       supportedLocales: const [Locale('fa', 'IR')],
 
-      home: const LoginScreen(),
+      home: const VerifyEmailCode(),
     );
   }
 }

@@ -76,8 +76,15 @@ class _VerifyEmailCodeState extends State<VerifyEmailCode> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
+    final double keyboardHeight = MediaQuery.of(context).viewInsets.bottom;
+    final double keyboardOffset = keyboardHeight > 0 ? -(keyboardHeight * 0.45) : 0;
+
+    final light1Left = (size.width * 0.1).clamp(20.0, 80.0);
+    final light2Right = (size.width * 0.4).clamp(80.0, 300.0);
 
     return Scaffold(
+      resizeToAvoidBottomInset: true,
+
       body: Stack(
         children: [
           Column(
@@ -100,46 +107,58 @@ class _VerifyEmailCodeState extends State<VerifyEmailCode> {
           Positioned(
             top: 0,
             left: size.width * 0.1,
-            child: Image.asset(ImagePath.light1, width: size.width * 0.24),
+            child: Image.asset(
+              ImagePath.light1,
+              width: (size.width * 0.24).clamp(0, 90),
+            ),
           ),
+
           Positioned(
             top: 0,
             right: size.width * 0.4,
-            child: Image.asset(ImagePath.light2, width: size.width * 0.16),
+            child: Image.asset(
+              ImagePath.light2,
+              width: (size.width * 0.16).clamp(0, 70),
+            ),
           ),
-
           Positioned(
             top: size.height * 0.01,
             left: size.width * 0.60,
             child: Image.asset(ImagePath.clock, width: size.width * 0.3),
           ),
 
-          Positioned(
-            top: size.height * 0.4,
-            left: size.width * 0.1,
-            right: size.width * 0.1,
-            child: const Text(
-              'تایید ورود',
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
+          Visibility(
+            visible: !(keyboardHeight > 0),
+            child: Positioned(
+              top: size.height * 0.4,
+              left: size.width * 0.1,
+              right: size.width * 0.1,
+              child: const Text(
+                'تایید ورود',
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
+
+          Visibility(
+            visible: !(keyboardHeight > 0),
+            child: Positioned(
+              top: size.height * 0.5 ,
+              left: size.width * 0.1,
+              right: size.width * 0.1,
+              child: const Text(
+                'تایید ورود به Seedjeddimail@gmail.com',
+                style: TextStyle(fontSize: 15, color: Colors.white),
               ),
             ),
           ),
 
           Positioned(
-            top: size.height * 0.5,
-            left: size.width * 0.1,
-            right: size.width * 0.1,
-            child: const Text(
-              'تایید ورود به Seedjeddimail@gmail.com',
-              style: TextStyle(fontSize: 15, color: Colors.white),
-            ),
-          ),
-
-          Positioned(
-            top: size.height * 0.5 / 0.9,
+            top: size.height * 0.5 / 0.9 + keyboardOffset,
             left: size.width * 0.1,
             child:  Text(
               formatTime(_start),
@@ -148,7 +167,7 @@ class _VerifyEmailCodeState extends State<VerifyEmailCode> {
           ),
 
           Positioned(
-            top: size.height * 0.6,
+            top: keyboardHeight > 0 ? size.height * 0.42 : size.height * 0.6,
             left: size.width * 0.1,
             right: size.width * 0.1,
             child: Row(
@@ -190,7 +209,7 @@ class _VerifyEmailCodeState extends State<VerifyEmailCode> {
           ),
 
           Positioned(
-            top: size.height * 0.7,
+            top: size.height * 0.7 + keyboardOffset,
             left: size.width * 0.1,
             child: ElevatedButton(
               onPressed: () {

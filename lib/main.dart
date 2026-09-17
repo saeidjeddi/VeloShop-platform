@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:veloshop/features/auth/presentation/pages/login_with_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:veloshop/features/main/presentation/pages/menu_screen.dart';
 import 'package:veloshop/features/main/presentation/route/names.dart';
 
 import 'features/auth/presentation/pages/verify_email_code.dart';
@@ -55,6 +56,8 @@ class MyApp extends StatelessWidget {
 
       routes: routes,
       initialRoute: ScreenNames.root,
+
+      // home: MenuScreen(),
     );
   }
 }

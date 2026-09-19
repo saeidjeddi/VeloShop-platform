@@ -8,15 +8,38 @@ class AppTextstyleDarkMode {
 
   static final TextStyle title = TextStyle(
     fontFamily: FontsPath.estedad,
-    fontSize: 20,
+    fontSize: 16,
     color: ColorDorkMode.title,
   );
 
   static TextStyle caption = TextStyle(
     fontFamily: FontsPath.dana,
-    fontSize: 13,
+    fontSize: 12,
     color: ColorDorkMode.title.withAlpha(150),
     fontWeight: FontWeight.normal,
+  );
+
+  static TextStyle discount = TextStyle(
+    fontFamily: FontsPath.tanha,
+    fontSize: 10,
+    color: Colors.white,
+    fontWeight: FontWeight.bold,
+  );
+
+
+  static TextStyle price = TextStyle(
+    fontFamily: FontsPath.dana,
+    fontSize: 13,
+    color: ColorDorkMode.title.withAlpha(150),
+    fontWeight: FontWeight.bold,
+  );
+
+  static TextStyle priceDiscount = TextStyle(
+    fontFamily: FontsPath.vazir,
+    fontSize: 10,
+    color: ColorDorkMode.title.withAlpha(150),
+    fontWeight: FontWeight.normal,
+    decoration: TextDecoration.lineThrough
   );
 
 

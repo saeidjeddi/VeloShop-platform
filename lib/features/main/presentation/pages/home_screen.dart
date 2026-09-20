@@ -113,7 +113,7 @@ class HomeScreen extends StatelessWidget {
 
             SizedBox(
               width: size.width,
-              height: size.height * .35,
+              height: size.height / 3,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: 5,
@@ -140,7 +140,7 @@ class HomeScreen extends StatelessWidget {
 
             SizedBox(
               width: size.width,
-              height: size.height * .35,
+              height: size.height * .3,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: 5,

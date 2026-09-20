@@ -30,7 +30,7 @@ class _VerifyEmailCodeState extends State<VerifyEmailCode> {
   int _start = 120;
 
 
-  startTimer() {
+  void startTimer() {
     const oneSec = Duration(seconds: 1);
     _timer = Timer.periodic(oneSec, (timer) {
       setState(() {
@@ -219,7 +219,6 @@ class _VerifyEmailCodeState extends State<VerifyEmailCode> {
 
                 }
               },
-              child: Text('ورود'),
               style: ElevatedButton.styleFrom(
                 minimumSize: Size(size.width * 0.8, size.height * 0.06),
                 backgroundColor: Colors.blue.shade900,
@@ -227,6 +226,7 @@ class _VerifyEmailCodeState extends State<VerifyEmailCode> {
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
+              child: Text('ورود'),
             ),
           ),
 

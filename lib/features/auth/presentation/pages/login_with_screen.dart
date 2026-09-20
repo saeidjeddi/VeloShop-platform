@@ -112,7 +112,6 @@ class LoginScreen extends StatelessWidget {
               onPressed: () {
                 // Handle login logic here
               },
-              child: Text('تایید'),
               style: ElevatedButton.styleFrom(
                 minimumSize: Size(size.width * 0.8, size.height * 0.06),
                 backgroundColor: Colors.blue.shade900,
@@ -120,6 +119,7 @@ class LoginScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
+              child: Text('تایید'),
             ),
           ),
 

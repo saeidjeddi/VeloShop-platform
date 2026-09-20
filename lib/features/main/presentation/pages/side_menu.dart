@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:veloshop/core/constants/assets_path/icons_path.dart';
 import 'package:veloshop/core/theme/text_style/dark_text_style.dart';
-import 'package:veloshop/core/widgets/info_card_menu_side.dart';
 import 'package:veloshop/core/widgets/side_menu_title.dart';
 
 

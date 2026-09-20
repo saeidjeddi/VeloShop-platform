@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:veloshop/core/constants/assets_path/image_path.dart';
 import 'package:veloshop/core/constants/dimens.dart';
-import 'package:veloshop/core/extention/price_libel.dart';
 import 'package:veloshop/core/extention/sizboxextension.dart';
 import 'package:veloshop/core/theme/text_style/dark_text_style.dart';
 import 'package:veloshop/core/widgets/appBarCostum.dart';

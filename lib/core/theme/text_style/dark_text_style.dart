@@ -11,12 +11,23 @@ class AppTextstyleDarkMode {
     fontSize: 16,
     color: ColorDorkMode.title,
   );
+  static final TextStyle cartTitle = TextStyle(
+    fontFamily: FontsPath.vazir,
+    fontSize: 14,
+    color: ColorDorkMode.title,
+  );
 
   static TextStyle caption = TextStyle(
     fontFamily: FontsPath.dana,
     fontSize: 12,
     color: ColorDorkMode.title.withAlpha(150),
     fontWeight: FontWeight.normal,
+  );
+  static TextStyle cartCaption = TextStyle(
+    fontFamily: FontsPath.tanha,
+    fontSize: 16,
+    color: Colors.white,
+    fontWeight: FontWeight.bold,
   );
 
   static TextStyle discount = TextStyle(

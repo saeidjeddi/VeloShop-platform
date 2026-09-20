@@ -1,6 +1,3 @@
-
-
-
 import 'package:flutter/material.dart';
 import 'package:veloshop/core/constants/dimens.dart';
 import 'package:veloshop/core/extention/price_libel.dart';
@@ -40,73 +37,70 @@ class ProductItem extends StatelessWidget {
             crossAxisAlignment: .start,
             mainAxisAlignment: .spaceBetween,
             children: [
-Column(
-  children: [
+              Column(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(AppDimers.medium),
+                      topRight: Radius.circular(AppDimers.medium),
+                    ),
+                    child: Image.asset(
+                      imgeProduct,
+                      fit: BoxFit.cover,
+                      width: size.width,
+                      height: 100,
+                    ),
+                  ),
 
-    ClipRRect(
-      borderRadius: BorderRadius.only(
-        topLeft: Radius.circular(AppDimers.medium),
-        topRight: Radius.circular(AppDimers.medium),
-      ),
-      child: Image.asset(
-        imgeProduct,
-        fit: BoxFit.cover,
-        width: size.width,
-        height: 100,
-      ),
-    ),
+                  SizedBox(
+                    width: size.width,
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                        left: AppDimers.medium,
+                        right: AppDimers.medium,
+                      ),
+                      child: Text(
+                        titel,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
+                        style: AppTextstyleDarkMode.title,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
 
-    SizedBox(
-      width: size.width,
-      child: Padding(
-        padding: EdgeInsets.only(
-          left: AppDimers.medium,
-          right: AppDimers.medium,
-        ),
-        child: Text(
-          titel,
-          overflow: TextOverflow.ellipsis,
-          maxLines: 2,
-          style: AppTextstyleDarkMode.title,
-        ),
-      ),
-    ),
+              Column(
+                mainAxisAlignment: .spaceBetween,
+                children: [
+                  if (pricDiscount != null)
+                    Padding(
+                      padding: EdgeInsets.only(
+                        left: AppDimers.medium,
+                        right: AppDimers.medium,
+                      ),
+                      child: Text(
+                        '${pricDiscount!.separatByComma}تومان ',
+                        style: AppTextstyleDarkMode.priceDiscount,
+                      ),
+                    ),
+                  if (pricDiscount == null) AppDimers.large.height,
 
-  ],
-),
-
-Column(
-  mainAxisAlignment: .spaceBetween,
-  children: [
-    if (pricDiscount != null)
-      Padding(
-        padding: EdgeInsets.only(
-          left: AppDimers.medium,
-          right: AppDimers.medium,
-        ),
-        child: Text(
-          '${pricDiscount!.separatByComma}تومان ',
-          style: AppTextstyleDarkMode.priceDiscount,
-        ),
-      ),
-    if (pricDiscount == null) AppDimers.large.height,
-
-    Padding(
-      padding: EdgeInsets.only(
-        left: AppDimers.medium,
-        right: AppDimers.medium,
-      ),
-      child: Text(
-        '${pric.withPriceLibel}تومان ',
-        style: AppTextstyleDarkMode.price,
-      ),
-    ),
-    AppDimers.medium.height,
-  ],
-),
-
+                  Padding(
+                    padding: EdgeInsets.only(
+                      left: AppDimers.medium,
+                      right: AppDimers.medium,
+                    ),
+                    child: Text(
+                      '${pric.withPriceLibel}تومان ',
+                      style: AppTextstyleDarkMode.price,
+                    ),
+                  ),
+                  AppDimers.medium.height,
+                ],
+              ),
             ],
-),
+          ),
 
           if (discount != null)
             Positioned(

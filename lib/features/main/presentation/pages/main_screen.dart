@@ -6,7 +6,6 @@ import 'package:veloshop/core/constants/assets_path/icons_path.dart';
 import 'package:veloshop/core/utils/app_snackbar.dart';
 import 'package:veloshop/features/cart/presentation/pages/cart_screen.dart';
 import 'package:veloshop/features/categories/presentation/pages/categories_screen.dart';
-import 'package:veloshop/features/main/presentation/pages/home_screen.dart';
 import 'package:veloshop/features/main/presentation/pages/menu_screen.dart';
 import 'package:veloshop/features/main/presentation/widgets/btm_nav_item.dart';
 import 'package:veloshop/features/profile/presentation/pages/profile_user_screen.dart';

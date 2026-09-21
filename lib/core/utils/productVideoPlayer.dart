@@ -294,6 +294,7 @@ class FullscreenVideoPlayerState
 
   @override
   void initState() {
+    controller.addListener(_videoListener);
     super.initState();
 
     SystemChrome.setEnabledSystemUIMode(
@@ -307,6 +308,14 @@ class FullscreenVideoPlayerState
 
     _startHideTimer();
   }
+
+
+  void _videoListener() {
+  if (mounted) {
+    setState(() {});
+  }
+}
+
 
   void _startHideTimer() {
     _hideTimer?.cancel();
@@ -355,6 +364,7 @@ class FullscreenVideoPlayerState
 @override
 void dispose() {
   _hideTimer?.cancel();
+   controller.removeListener(_videoListener);
   super.dispose();
 }
 

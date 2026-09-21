@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:veloshop/core/constants/assets_path/image_path.dart';
 import 'package:veloshop/core/constants/dimens.dart';
 import 'package:veloshop/core/extention/sizboxextension.dart';
@@ -20,8 +21,13 @@ class _ProductScreenState extends State<ProductScreen> {
   late VideoPlayerController _videoController;
 
   @override
-  void initState() {
+  void initState()  {
     super.initState();
+
+     SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
 
     _videoController = VideoPlayerController.networkUrl(
       Uri.parse(
@@ -42,6 +48,10 @@ class _ProductScreenState extends State<ProductScreen> {
 
   @override
   void dispose() {
+      SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
     _videoController.dispose();
     super.dispose();
   }
@@ -216,9 +226,12 @@ class _ProductScreenState extends State<ProductScreen> {
 
                 child: ElevatedButton(
                   style: ElevatedButtonStyleDarkMod.mainElevatedButton,
-                  
+
                   onPressed: () {},
-                   child: Text('افزودن به سبدخرید', style: AppTextstyleDarkMode.btmNavActive,)
+                  child: Text(
+                    'افزودن به سبدخرید',
+                    style: AppTextstyleDarkMode.btmNavActive,
+                  ),
                 ),
               ),
             ),

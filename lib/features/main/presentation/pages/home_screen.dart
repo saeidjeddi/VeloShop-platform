@@ -7,8 +7,10 @@ import 'package:veloshop/core/extention/sizboxextension.dart';
 import 'package:veloshop/core/theme/text_style/dark_text_style.dart';
 import 'package:veloshop/core/widgets/appBarCostum.dart';
 import 'package:veloshop/core/widgets/productItem.dart';
+import 'package:veloshop/features/main/presentation/route/names.dart';
 import 'package:veloshop/features/main/presentation/widgets/carouselSliderItem.dart';
 import 'package:veloshop/features/main/presentation/widgets/labelTitle.dart';
+import 'package:veloshop/features/products/presentation/pages/product_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key, required this.onMenuPressed});
@@ -129,6 +131,10 @@ class HomeScreen extends StatelessWidget {
                       imgeProduct: ImagePath.slider1,
                       pricDiscount: 4000000,
                       discount: 20,
+                       onTap: () { 
+
+                        Navigator.push(context,MaterialPageRoute(builder: (context) => ProductScreen(),) );
+                        },
                     ),
                   );
                 },
@@ -154,6 +160,7 @@ class HomeScreen extends StatelessWidget {
                       titel: 'گوشی گلکسی S23',
                       pric: 80000,
                       imgeProduct: ImagePath.slider3,
+                       onTap: () {  },
 
 
                     ),

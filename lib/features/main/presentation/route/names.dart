@@ -6,5 +6,6 @@ class ScreenNames {
   static const profileUserScreen = "/profileUserScreen";
   static const cartScreen = "/cartScreen";
   static const categoriesScreen = "/categoriesScreen";
+  static const productScreen = "/productScreen";
 }
 

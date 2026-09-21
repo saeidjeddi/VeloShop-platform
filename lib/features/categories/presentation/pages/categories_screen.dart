@@ -45,6 +45,7 @@ class CategoriesScreen extends StatelessWidget {
                       imgeProduct: ImagePath.slider2,
                       discount: 6,
                       pricDiscount: 400000,
+                       onTap: () {  },
                     );
                   },
                 ),

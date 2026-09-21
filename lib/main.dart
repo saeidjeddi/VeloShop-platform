@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:veloshop/features/main/presentation/route/names.dart';
+import 'package:veloshop/features/main/presentation/route/routes.dart';
 
-import 'features/main/presentation/route/routes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
       routes: routes,
       initialRoute: ScreenNames.root,
 
-      // home: MenuScreen(),
+      // home: ProductScreen(),
     );
   }
 }

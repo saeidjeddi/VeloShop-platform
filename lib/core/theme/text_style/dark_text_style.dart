@@ -23,6 +23,14 @@ class AppTextstyleDarkMode {
     color: ColorDorkMode.title.withAlpha(150),
     fontWeight: FontWeight.normal,
   );
+
+  static TextStyle discripton = TextStyle(
+    fontFamily: FontsPath.dana,
+    fontSize: 14,
+    color: ColorDorkMode.title.withAlpha(150),
+    fontWeight: FontWeight.normal,
+  );
+
   static TextStyle cartCaption = TextStyle(
     fontFamily: FontsPath.tanha,
     fontSize: 16,
@@ -67,6 +75,8 @@ class AppTextstyleDarkMode {
     color: ColorDorkMode.title,
     fontWeight: FontWeight.normal,
   );
+
+
   static TextStyle libelSideMenu = TextStyle(
     fontFamily: FontsPath.estedad,
     fontSize: 14,
@@ -108,8 +118,8 @@ class AppTextstyleDarkMode {
 
 
   static const TextStyle btmNavActive = TextStyle(
-      fontFamily: 'Dana',
-      fontSize: 12,
+      fontFamily: FontsPath.tanha,
+      fontSize: 16,
       color: ColorDorkMode.btmNavActiveItem);
 
   static const TextStyle btmNavInActive = TextStyle(

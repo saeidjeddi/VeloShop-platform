@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:veloshop/features/main/presentation/route/names.dart';
 import 'package:video_player/video_player.dart';
 
 class ProductVideoPlayer extends StatefulWidget {
@@ -88,29 +89,64 @@ void dispose() {
     }
   }
 
+  // Future<void> _openFullscreen() async {
+  //   _hideControlsTimer?.cancel();
+
+  //   // await Navigator.of(context).push(
+  //   //   MaterialPageRoute(
+  //   //     builder: (_) => FullscreenVideoPlayer(
+  //   //       controller: controller,
+  //   //     ),
+  //   //   ),
+  //   // );
+
+  //    Navigator.pushNamed(context, ScreenNames.fullscreenVideoPlayer, arguments: controller );
+
+
+
+  //   if (mounted) {
+  //     SystemChrome.setEnabledSystemUIMode(
+  //       SystemUiMode.edgeToEdge,
+  //     );
+
+  //     setState(() {
+  //       _showControls = true;
+  //     });
+
+  //     _startHideTimer();
+  //   }
+  // }
+
+
+
+
+
+
+
+
   Future<void> _openFullscreen() async {
-    _hideControlsTimer?.cancel();
+  _hideControlsTimer?.cancel();
 
-    await Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (_) => _FullscreenVideoPlayer(
-          controller: controller,
-        ),
+  await Navigator.of(context, rootNavigator: true).push(
+    MaterialPageRoute(
+      builder: (_) => FullscreenVideoPlayer(
+        controller: controller,
       ),
-    );
+    ),
+  );
 
-    if (mounted) {
-      SystemChrome.setEnabledSystemUIMode(
-        SystemUiMode.edgeToEdge,
-      );
+  if (!mounted) return;
 
-      setState(() {
-        _showControls = true;
-      });
+  await SystemChrome.setEnabledSystemUIMode(
+    SystemUiMode.edgeToEdge,
+  );
 
-      _startHideTimer();
-    }
-  }
+  setState(() {
+    _showControls = true;
+  });
+
+  _startHideTimer();
+}
 
  
   @override
@@ -235,20 +271,22 @@ void dispose() {
 
 
 
-class _FullscreenVideoPlayer extends StatefulWidget {
-  const _FullscreenVideoPlayer({
-    required this.controller,
-  });
+class FullscreenVideoPlayer extends StatefulWidget {
+    const FullscreenVideoPlayer({super.key, required this.controller});
 
   final VideoPlayerController controller;
 
+
+
   @override
-  State<_FullscreenVideoPlayer> createState() =>
-      _FullscreenVideoPlayerState();
+  State<FullscreenVideoPlayer> createState() =>
+      FullscreenVideoPlayerState();
 }
 
-class _FullscreenVideoPlayerState
-    extends State<_FullscreenVideoPlayer> {
+
+
+class FullscreenVideoPlayerState
+    extends State<FullscreenVideoPlayer> {
   Timer? _hideTimer;
   bool _showControls = true;
 
@@ -274,7 +312,7 @@ class _FullscreenVideoPlayerState
     _hideTimer?.cancel();
 
     _hideTimer = Timer(
-      const Duration(seconds: 2),
+      const Duration(seconds: 5),
       () {
         if (mounted) {
           setState(() {
@@ -297,36 +335,28 @@ class _FullscreenVideoPlayerState
     }
   }
 
-  Future<void> _closeFullscreen() async {
-    _hideTimer?.cancel();
+ Future<void> _closeFullscreen() async {
+  _hideTimer?.cancel();
 
-    await SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp,
-    ]);
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
 
-    await SystemChrome.setEnabledSystemUIMode(
-      SystemUiMode.edgeToEdge,
-    );
+  await SystemChrome.setEnabledSystemUIMode(
+    SystemUiMode.edgeToEdge,
+  );
 
-    if (mounted) {
-      Navigator.of(context).pop();
-    }
-  }
+  if (!mounted) return;
 
-  @override
-  void dispose() {
-    _hideTimer?.cancel();
+  Navigator.of(context).pop();
+}
 
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp,
-    ]);
-
-    SystemChrome.setEnabledSystemUIMode(
-      SystemUiMode.edgeToEdge,
-    );
-
-    super.dispose();
-  }
+@override
+void dispose() {
+  _hideTimer?.cancel();
+  super.dispose();
+}
 
   @override
   Widget build(BuildContext context) {

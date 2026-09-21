@@ -126,15 +126,15 @@ class HomeScreen extends StatelessWidget {
                     ),
                     child: ProductItem(
                       size: size,
-                      titel: 'هدفون بی‌‌سیم حرفه‌ای مدل Pro X قشنگ و مشنگ و قشنگ',
+                      titel:
+                          'هدفون بی‌‌سیم حرفه‌ای مدل Pro X قشنگ و مشنگ و قشنگ',
                       pric: 700000,
                       imgeProduct: ImagePath.slider1,
                       pricDiscount: 4000000,
                       discount: 20,
-                       onTap: () { 
-
+                      onTap: () {
                         Navigator.push(context,MaterialPageRoute(builder: (context) => ProductScreen(),) );
-                        },
+                      },
                     ),
                   );
                 },
@@ -160,9 +160,7 @@ class HomeScreen extends StatelessWidget {
                       titel: 'گوشی گلکسی S23',
                       pric: 80000,
                       imgeProduct: ImagePath.slider3,
-                       onTap: () {  },
-
-
+                      onTap: () {},
                     ),
                   );
                 },
@@ -176,4 +174,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-

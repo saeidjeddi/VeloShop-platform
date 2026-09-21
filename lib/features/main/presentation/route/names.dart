@@ -7,5 +7,6 @@ class ScreenNames {
   static const cartScreen = "/cartScreen";
   static const categoriesScreen = "/categoriesScreen";
   static const productScreen = "/productScreen";
+  static const fullscreenVideoPlayer = "/fullscreenVideoPlayer";
 }
 
